@@ -1,34 +1,31 @@
 import { GameMap } from '/static/js/game_map/base.js';
-import { Player } from '/static/js/player/base.js'
+import { Player } from '/static/js/player/base.js';
+import { Kyo } from './player/kyo.js';
 
-
-class KOF {
+export class KOF {
     constructor(id) {
+        this.id = id;
         this.$kof = $('#' + id);
 
         this.game_map = new GameMap(this);
+
         this.players = [
-            new Player(this, {
-                id: 0,
+            new Kyo(this, {
                 x: 200,
                 y: 0,
-                width: 120,
-                height: 200,
-                color: 'blue',
+                width: 150,
+                height: 270,
+                color: "blue",
+                id: 0,
             }),
-
-            new Player(this, {
-                id: 1,
-                x: 800,
+            new Kyo(this, {
+                x: 930,
                 y: 0,
-                width: 120,
-                height: 200,
-                color: 'red',
-            }),
+                width: 150,
+                height: 270,
+                color: "red",
+                id: 1,
+            })
         ];
     }
-}
-
-export {
-    KOF
 }
